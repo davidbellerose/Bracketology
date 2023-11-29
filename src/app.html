@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  _header.html
+</head>
+
+<body>
+  <!-- This is to identify which page is loaded for the breadcrumbs -->
+  <span id="app-page" hidden></span>
+  _navigation.html
+
+  <!-- MAIN -->
+  <main class="flex-shrink-0" style="margin-top:5rem;">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-lg-2">
+        <div class="col-lg-4 border-end border-2">
+          <h1>Bracketology<br>A Coding Project</h1>
+          <h4 class="lead">This app will check if a string has brackets that are balanced.</h4>
+          <h2 class="mt-5 border-bottom border-3">Instructions</h2>
+          <ul class="disc">
+            <li>Enter a string of text that has brackets in it.</li>
+            <li>Or you can choose a string to test from the drop down box.</li>
+            <li>Click on the "Check Brackets" button to test.</li>
+          </ul>
+        </div>
+        <div class="col-lg-8">
+          <h5>Enter Values</h5>
+          <form class="row row-cols-1 row-cols-lg-2 gy-2 gx-3">
+            <div class="col">
+              <label>Enter a string with brackets.</label>
+              <input id="inputStr" class="form-control" aria- label="Start Value"></input>
+            </div>
+            <div class="col">
+              <label>Or choose one of these strings to test.</label>
+              <select id="chooseStr" class="form-control" aria- label="Start Value">
+                <option selected disabled>Choose...</option>
+                <option>[()]{}{[()()]()}</option>
+                <option>([{}])</option>
+                <option>{(})[]</option>
+                <option>[(])</option>
+                <option>[()</option>
+                <option>()</option>
+                <option>()}</option>
+              </select>
+            </div>
+            <div class="col-12 col-lg-12 d-flex justify-content-start justify-content-lg-end">
+              <button type="button" id="btnSubmit" class="btn btn-lg btn-actions">Check Brackets</button>
+            </div>
+          </form>
+          <h2 class="mt-5 border-bottom border-2">Results</h2>
+          <div class="results-container">
+            <div id="results" class="results"></div>
+          </div>
+          <h5 id="codeLink"></h5>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- END MAIN -->
+  _footer.html
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.querySelectorAll('.nav-link').forEach(item => {
+      item.classList.remove("active-link");
+    });
+    document.getElementById("app-link").classList.add("active-link");
+  </script>
+</body>
+
+</html>

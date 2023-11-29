@@ -1,0 +1,88 @@
+@use 'reset';
+@use 'colors';
+@use 'navigation';
+@use 'footer';
+@use 'fonts';
+
+
+body {
+  color: var(--primary-color);
+}
+
+nav {
+  background-color: var(--dark-color);
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--primary-color);
+}
+
+main .container {
+  padding: 60px 15px 0;
+  margin-bottom: 5rem;
+}
+
+.disc li{
+  list-style-type: disc;
+}
+
+.checklist>li i {
+  color: var(--secondary-color);
+}
+
+.project-icons img {
+  height: 50px;
+  width: auto;
+}
+
+.btn-actions {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-actions:hover {
+  color: var(--primary-color);
+  background-color: white;
+  border-color: var(--primary-color);
+}
+
+.contact-link {
+  color: blue !important;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  // color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.results-container {
+  margin-top: 1rem;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: black;
+}
+
+form select {
+  /*webkit browsers */
+  -webkit-appearance: menulist !important;
+  /*Firefox */
+  -moz-appearance: menulist !important;
+  /* modern browsers */
+  appearance: menulist !important;
+}
+
+
+// prism custom css
+code[class*="language-"],
+pre[class*="language-"] {
+  white-space: pre-wrap;
+  word-break: normal;
+  word-wrap: normal;
+}

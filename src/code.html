@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    _header.html
+  </head>
+
+  <body>
+    <!-- This is to identify which page is loaded for the breadcrumbs -->
+    <span id="app-page" hidden></span>
+     _navigation.html
+
+    <!-- MAIN -->
+    <main class="flex-shrink-0 mt-5">
+      <div class="container py-4 px-5 mt-5">
+        <h2 class="border-1 border-bottom border-dark">The Code for Bracketology</h2>
+        <div class="row row-cols-1 row-cols-lg-2">
+            <div class="col-lg-8">
+
+<!-- PRISM NOTE: The tabs and spacing here will be matched in the html page -->
+<pre class="line-numbers"><code class="language-javascript">
+    <!-- Inside this section, you have to replace all "<" with "&lt;" and sometimes ">" with "&gt;" -->
+// Add event listener for the Reverse button.
+document.getElementById("btnSubmit").addEventListener("click", getValue);
+
+// Get the input and select elements
+const selectChoose = document.querySelector("#chooseStr");
+const selectInput = document.querySelector("#inputStr");
+
+// The select box choice will populate the input element.
+selectChoose.addEventListener("change", () => {
+    let inputStr = selectChoose.options[selectChoose.selectedIndex].text;
+    selectInput.value = inputStr;
+});
+
+
+
+// This function is called by the button.
+function getValue() {
+    // Get the value of the input element.
+    let userInput = selectInput.value;
+
+    // Pass the userString to the isBalanced helper function.
+    let result = isBalanced(userInput);
+
+    // Pass the result to the displayResults helper function.
+    displayResults(result, userInput); // Will be bool type; true or false.
+}
+
+function isBalanced(exp) {
+// Array to hold the opening brackets for comparison.
+let stack = [];
+
+// If the string is empty, or has no brackets, prompt user to enter a string with brackets.
+let regExp = /\(|\)|\[|\]|\{|\}/g;
+if (exp.length == 0 || !exp.match(regExp)) {
+    alert("Please enter a string with brackets.");
+    selectInput.focus();
+}
+
+// Loop through the string.
+for (let i = 0; i &lt; exp.length; i++) {
+  if (exp[i] == "(" || exp[i] == "{" || exp[i] == "[") {
+    //Find the opening brackets and put the in the stack array.
+    stack.push(exp[i]);
+    continue;
+  } else if (exp[i] == ")" || exp[i] == "}" || exp[i] == "]") {
+    //When we come across a closing bracket, check if it matches the previous opening bracket.
+
+    // First check if the opening brackets stack is empty.
+    // If it is, the brackets are balanced and we are done.
+    if (stack.length == 0) {
+        return false;
+    }
+
+    // Take out the most recent opening bracket stored in the stack array.
+    let check = stack.pop();
+
+    switch (exp[i]) {
+      // If this index is this closing bracket,
+      case ")":
+        // And it doesn't match the correct opening bracket pulled from the stack array,
+        if (check != "(") {
+          //Then the brackets are not balanced.
+          return false;
+        }
+        break;
+
+      case "}":
+        if (check != "{") {
+          return false;
+        }
+        break;
+
+      case "]":
+        if (check != "[") {
+          return false;
+        }
+        break;
+    };
+  }
+}
+// Check to see if the stack array is empty
+if (stack.length > 0) {
+    //If it's not empty, the brackets are not balanced.
+    return false;
+}
+return true;
+}
+
+function displayResults(result, userInput) {
+  // Get the element that will display the results.
+  let display = document.getElementById("results");
+
+  // Remove all the characters from a string except the brackets for display.
+  userInput = userInput.replace(/[^\(|^\)|^\[|^\]|^\{|^\}]/g, "");
+
+  // Check for a truthy value and display the results accordingly.
+  if (result) {
+    display.innerHTML = `&lt;span style="background-color:lightgray;">&nbsp;${userInput}&nbsp;&lt;/span>&nbsp;&nbsp;These brackets are balanced.`
+  } else {
+     display.innerHTML = `&lt;span style="background-color:lightgray;">&nbsp;${userInput}&nbsp;&lt;/span>&nbsp;&nbsp;These brackets are not balanced.`
+  }
+}
+    
+</code></pre>
+ <!-- END PRISM CODE BLOCK -->
+
+            </div>
+            <div class="col-lg-4"><h5>This code is structured in three functions.</h5><br>
+                <p>The first thing done was to add an event listener to the button so
+                    the code will fire when the button is pressed. An event listener was
+                    also added to the drop down box to enter the string from the dropdown
+                    box into the input field.
+                </p><br>
+                <p>The next getValue function gets the values from the input field,
+                    which is the text box that has the string to be tested. It also makes
+                    a few checks to see if the the string has brackets in it or is not empty. Finally it will
+                    call on a couple of "helper" functions explained below.
+                  </p><br>
+                <p>The first helper function is called isBalanced. This function will
+                    perform the logic to check if the brackets are balanced. If they are
+                    balanced it will return true, and false if they are not.
+                </p><br>
+                <p>The second helper function is called displayResults. This will take the
+                    true or false result passed into it from the getValue function. The original
+                    entered test string is filtered to show only the brackets in that string. The result
+                    and the filtered string are displayed in the results area.
+                </p><br>
+                <p>So once the getValue function gets the values from the test string and
+                    checks to make sure those inputs are valid, it calls the isBalanced
+                    function to generate the results of the test, then it calls the displayResults
+                    function to display the results of the test in the results section of the web page.
+                </p><br>
+                <h5>Please <a href="https://www.davidbellerose.com/#contact" class="contact-link" alt="Contact Me">contact me</a> if you have any questions and/or would like to discuss
+                    my skill set and qualifications.
+                </h5>
+            </div>
+        </div>
+      </div>
+    </main>
+    <!-- END MAIN -->
+        
+    _footer.html
+    <script>
+      document.querySelectorAll('.nav-link').forEach(item => {
+      item.classList.remove("active-link");
+    });
+    document.getElementById("code-link").classList.add("active-link");
+  </script>
+  </body>
+</html>
