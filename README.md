@@ -1,15 +1,20 @@
+# Tattarrattat
 
-double check
+## An ASP.NET C# application that checks if a string is a palindrome.
 
-create repo
-gitrepo link in nav
+ - CSS SASS Bootstrap Node.js Layout
+ - Javascript Fundamentals
+ - Javascript Loops
+ - Javascript Functions
+ - Javascript Dom Manipulation
+ - Javascript If/Then/Else
+ - Javascript Boolean Logic
 
-update readme
 
-post to netlify
 
-add to portfolio
+ [Go To Website](https://bracketology-javascript.netlify.app/)
+ 
+ 
+ 
 
-do blog article
-
-tweet and linked in
+ 
