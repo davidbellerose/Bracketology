@@ -1,6 +1,7 @@
-# Tattarrattat
+# 
+Bracketology
 
-## An ASP.NET C# application that checks if a string is a palindrome.
+## A JavaScript application that checks if brackets are balanced.
 
  - CSS SASS Bootstrap Node.js Layout
  - Javascript Fundamentals
