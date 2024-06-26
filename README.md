@@ -1,5 +1,4 @@
-# 
-Bracketology
+# Bracketology
 
 ## A JavaScript application that checks if brackets are balanced.
 
